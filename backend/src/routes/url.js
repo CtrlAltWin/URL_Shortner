@@ -8,7 +8,6 @@ const baseUrl = process.env.BACKEND_URL;
 router.post("/", async (req, res) => {
   try {
     const redirectUrl = req.body.redirectUrl;
-    console.log("hello");
     if (!redirectUrl) {
       return res.status(400).json({
         error: "url is required",
@@ -33,6 +32,18 @@ router.post("/", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: "error shortening the url" });
+  }
+});
+
+router.get("/history", async (req, res) => {
+  try {
+    const urls = await URL.find();
+    res.json({
+      message: "Url history",
+      urls,
+    });
+  } catch (err) {
+    res.status(500).json({ error: "error fetching the url history" });
   }
 });
 
