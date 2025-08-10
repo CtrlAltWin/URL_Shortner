@@ -21,7 +21,7 @@ const UrlCard = ({ url }) => {
             </p>
 
             <p className="text-purple-600 text-sm w-fit px-3 py-1 bg-purple-100 rounded-full">
-              {`${visitedCount} clicks`}
+              {`${visitedCount} visits`}
             </p>
           </div>
 
