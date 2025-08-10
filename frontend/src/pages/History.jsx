@@ -81,7 +81,7 @@ export default function History() {
       </div>
 
       {/* Url Cards container */}
-      <div className="max-w-[1100px] w-full mx-auto p-6 rounded-md shadow shadow-indigo-500">
+      <div className="max-w-[1100px] w-full mx-auto rounded-md">
         <h1 className="text-xl font-semibold mb-6 text-gray-700">
           All Shortened URLs
         </h1>

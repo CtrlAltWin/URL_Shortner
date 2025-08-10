@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav className="bg-transparent h-20 px-10 flex items-center justify-between border-b border-gray-300 relative">
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text font-bold text-xl">
-        TinyURL
+        ShortURL
       </div>
 
       {/* Desktop menu */}
@@ -28,7 +28,9 @@ export default function Navbar() {
         <Link
           to="/"
           className={`${linkBaseClasses} ${
-            active === "shortener" ? activeClasses : "text-indigo-500 " + hoverClasses
+            active === "shortener"
+              ? activeClasses
+              : "text-indigo-500 " + hoverClasses
           }`}
           onClick={() => setMenuOpen(false)}
         >
@@ -37,7 +39,9 @@ export default function Navbar() {
         <Link
           to="/history"
           className={`${linkBaseClasses} ${
-            active === "history" ? activeClasses : "text-indigo-500 " + hoverClasses
+            active === "history"
+              ? activeClasses
+              : "text-indigo-500 " + hoverClasses
           }`}
           onClick={() => setMenuOpen(false)}
         >
@@ -60,7 +64,9 @@ export default function Navbar() {
           <Link
             to="/"
             className={`${linkBaseClasses} ${
-              active === "shortener" ? activeClasses : "text-indigo-500 " + hoverClasses
+              active === "shortener"
+                ? activeClasses
+                : "text-indigo-500 " + hoverClasses
             }`}
             onClick={() => setMenuOpen(false)}
           >
@@ -69,11 +75,13 @@ export default function Navbar() {
           <Link
             to="/history"
             className={`${linkBaseClasses} ${
-              active === "history" ? activeClasses : "text-indigo-500 " + hoverClasses
+              active === "history"
+                ? activeClasses
+                : "text-indigo-500 " + hoverClasses
             }`}
             onClick={() => setMenuOpen(false)}
           >
-            History
+            Dashboard
           </Link>
         </div>
       )}

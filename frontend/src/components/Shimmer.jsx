@@ -1,31 +1,19 @@
 export default function Shimmer() {
   return (
     <div className="animate-pulse p-6 max-w-6xl mx-auto space-y-8 bg-gray-50 rounded-md">
-      {/* Header */}
-      <div className="flex flex-col items-center space-y-3">
-        <div className="w-12 h-12 rounded-lg bg-gray-200"></div>
-        <div className="h-8 w-48 rounded-md bg-gray-200"></div>
-        <div className="h-4 w-64 rounded-md bg-gray-200"></div>
-      </div>
-
-      {/* Stats cards */}
-      <div className="flex justify-between space-x-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 justify-between gap-4 mt-5">
         {[1, 2, 3].map((_, i) => (
           <div
             key={i}
-            className="flex items-center space-x-4 p-4 bg-white rounded-lg border border-gray-200 shadow-sm flex-1"
+            className="h-28 border border-gray-200 p-4 space-y-4 rounded-lg"
           >
-            <div className="w-12 h-12 rounded-lg bg-gray-200"></div>
-            <div className="space-y-2">
-              <div className="h-4 w-24 rounded bg-gray-200"></div>
-              <div className="h-6 w-12 rounded bg-gray-200"></div>
-            </div>
+            <div className="h-7 w-24 bg-gray-200"></div>
+            <div className="h-7 w-12 bg-gray-200"></div>
           </div>
         ))}
       </div>
 
-      {/* URL list */}
-      <div className="rounded-lg border border-gray-200 p-4 space-y-4">
+      <div className="space-y-3">
         <div className="h-6 w-48 rounded-md bg-gray-200 mb-3"></div>
         {[1, 2, 3, 4, 5].map((_, i) => (
           <div
