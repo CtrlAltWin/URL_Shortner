@@ -5,6 +5,14 @@ const { urlValidator } = require("../utils/urlValidator");
 const { URL } = require("../models/url");
 const baseUrl = process.env.BACKEND_URL;
 
+router.get("/hello", async (req, res) => {//dummy route for uptime
+  try {
+    res.json({ message: "hello" });
+  } catch (err) {
+    res.status(500).json({ error: "some error occured" });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const redirectUrl = req.body.redirectUrl;
