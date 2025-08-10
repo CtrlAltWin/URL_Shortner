@@ -1,41 +1,48 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Determine active tab from current path
+  const active = location.pathname === "/history" ? "history" : "shortener";
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
+  const linkBaseClasses =
+    "font-medium px-3 py-1 rounded cursor-pointer transition-colors duration-200";
+
+  const activeClasses = "bg-purple-500 text-white";
+  const hoverClasses = "hover:bg-slate-200";
+
   return (
-    <nav className="bg-white shadow px-6 py-3 flex items-center justify-between">
-      <div className="text-blue-600 font-bold text-xl cursor-default">
-        URL Shortener
+    <nav className="bg-transparent h-20 px-10 flex items-center justify-between border-b border-gray-300 relative">
+      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text font-bold text-xl">
+        TinyURL
       </div>
 
       {/* Desktop menu */}
       <div className="hidden sm:flex space-x-6">
-        <NavLink
+        <Link
           to="/"
-          end
-          className={({ isActive }) =>
-            isActive
-              ? "text-blue-700 font-semibold underline"
-              : "text-gray-900 font-semibold hover:text-blue-700 hover:underline"
-          }
+          className={`${linkBaseClasses} ${
+            active === "shortener" ? activeClasses : "text-indigo-500 " + hoverClasses
+          }`}
+          onClick={() => setMenuOpen(false)}
         >
-          URL Shortener
-        </NavLink>
-        <NavLink
+          Shortener
+        </Link>
+        <Link
           to="/history"
-          className={({ isActive }) =>
-            isActive
-              ? "text-blue-700 font-semibold underline"
-              : "text-gray-900 font-semibold hover:text-blue-700 hover:underline"
-          }
+          className={`${linkBaseClasses} ${
+            active === "history" ? activeClasses : "text-indigo-500 " + hoverClasses
+          }`}
+          onClick={() => setMenuOpen(false)}
         >
-          History
-        </NavLink>
+          Dashboard
+        </Link>
       </div>
 
       {/* Mobile menu button */}
@@ -49,30 +56,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white shadow-md flex flex-col space-y-3 px-6 py-4 sm:hidden z-10">
-          <NavLink
+        <div className="absolute top-16 left-0 right-0 bg-white shadow-md flex flex-col space-y-3 px-10 py-4 sm:hidden z-10">
+          <Link
             to="/"
-            end
+            className={`${linkBaseClasses} ${
+              active === "shortener" ? activeClasses : "text-indigo-500 " + hoverClasses
+            }`}
             onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-700 font-semibold underline"
-                : "text-gray-900 font-semibold hover:text-blue-700 hover:underline"
-            }
           >
             URL Shortener
-          </NavLink>
-          <NavLink
+          </Link>
+          <Link
             to="/history"
+            className={`${linkBaseClasses} ${
+              active === "history" ? activeClasses : "text-indigo-500 " + hoverClasses
+            }`}
             onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-700 font-semibold underline"
-                : "text-gray-900 font-semibold hover:text-blue-700 hover:underline"
-            }
           >
             History
-          </NavLink>
+          </Link>
         </div>
       )}
     </nav>

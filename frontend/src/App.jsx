@@ -4,10 +4,10 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <div className="p-8">
-        <Outlet/>
+      <div className="px-4 sm:px-8">
+        <Outlet />
       </div>
     </div>
   );
